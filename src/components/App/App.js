@@ -35,6 +35,7 @@ class App extends React.Component{
 
 
   handleMovieClick = (id) => {
+    console.log(id)
     let clickedMovie = this.state.movies.find(movie => movie.id === id)
     console.log(clickedMovie)
     this.setState({ clickedMovies: clickedMovie})
@@ -44,12 +45,18 @@ class App extends React.Component{
 
 
 render() {
-  console.log(this.state)
+  console.log(this.state.movies)
   return (
     <BrowserRouter>
       <Switch>
-         <Route path="/"  component={Home} />
-         <Route path="/:movie_id" component={MovieInfo} clickedMovie={this.state.clickedMovie} />
+         <Route exact path="/"  component={Home} />
+         <Route path="/:movie_id" render={(routerProps) => {
+            console.log('hi cari')
+            console.log(routerProps);
+            let clickedMovie = this.state.movies.find(movie => movie.id === parseInt(routerProps.match.params.movie_id))
+           return <MovieInfo clickedMovie={clickedMovie} />}
+         }
+         />
       </Switch>
    </BrowserRouter>
     )
