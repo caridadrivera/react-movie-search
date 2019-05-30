@@ -4,9 +4,9 @@ import SearchBar from '../App/elements/SearchBar/SearchBar';
 import FourColGrid from '../App/elements/FourColGrid/FourColGrid';
 import MovieThumb from '../App/elements/MovieThumb/MovieThumb';
 import LoadMoreBtn from '../App/elements/LoadMoreBtn/LoadMoreBtn';
-import Header from '../App/elements/Header/Header'
+import Header from '../App/elements/Header/Header';
 import Spinner from '../App/elements/Spinner/Spinner';
-
+import Navigation from '../App/elements/Navigation/Navigation';
 import './Home.css';
 
 class Home extends Component {
@@ -29,6 +29,13 @@ componentDidMount() {
 
 
   searchItems = (searchTerm) => {
+  // console.log(searchTerm)
+   // const filteredMovies = this.state.movies.filter(movie=> {
+   //   return movie.original_title.includes(searchTerm)
+   // })
+   // console.log(filteredMovies)
+   // this.setState({ filteredMovies: filteredMovies})
+
     let endpoint = '';
     this.setState({
       movies: [],
@@ -92,6 +99,9 @@ componentDidMount() {
     return (
 
       <div className="home">
+      <div>
+      <Navigation />
+      </div>
       <Header />
       {/* props are coming to the searchbarrr to be able to get the value of the user iput */}
         {<SearchBar callback={this.searchItems}/>}
@@ -116,9 +126,9 @@ componentDidMount() {
                 />
 
               ))}
-            </FourColGrid>//closing of FourColGrid, sending in my movieThumb
+            </FourColGrid> {/*closing of FourColGrid, sending in my movieThumb /*}
 
-            // sending all of these things down as children to the FourColGrid in order to be able to call props.children and iterate over everything
+          {  /* sending all of these things down as children to the FourColGrid in order to be able to call props.children and iterate over everything */}
             {loading ? <Spinner /> : null}
             {(currentPage <= totalPages && !loading) ?
               //sendind text props and callback to loadMore

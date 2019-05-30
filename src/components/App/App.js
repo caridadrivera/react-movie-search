@@ -1,11 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { API_URL, API_KEY } from '../../config';
-
 import Home from '../Home/Home';
 import MovieInfo from './elements/MovieInfo/MovieInfo'
-// import MovieThumb from './elements/MovieThumb/MovieThumb'
-//
 
 
 class App extends React.Component{
@@ -58,7 +55,7 @@ render() {
          }
          />
       </Switch>
-   </BrowserRouter>
+    </BrowserRouter>
     )
   }
 
