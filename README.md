@@ -1,4 +1,4 @@
-# React-Movie-Search(solo project)
+# React-Movie-Search
 This app allows you to search for popular movies that are currently in theaters, and see their rating and description
 + The front-end was built in React with no backend. The images and movie information are fetched from an Api in package.json
 + Using TMDB Api, this app fetches information about specific movies in the big screen 
